@@ -1,7 +1,7 @@
 <template>
     <div class="admin-post-page">
         <section class="update-form">
-            <AdminPostForm :post="loadedPost" />
+            <AdminPostForm :post="loadedPost" @submit="onSubmitted"/>
         </section>
     </div>
 </template>
@@ -11,17 +11,24 @@ import AdminPostForm from '@/components/Admin/AdminPostForm';
 
 export default {
     layout: 'admin',
+    middleware: ['check-auth', 'auth'],
     components: {
         AdminPostForm
     },
-    data: () => ({
-        loadedPost: {
-            author: 'Robinson',
-            title: 'the mind',
-            content: 'the space of mind',
-            thumbnailLink: 'https://www.google.com.do/imgres?imgurl=http%3A%2F%2Fi.huffpost.com%2Fgen%2F1196953%2Fimages%2Fo-MIND-UPLOADING-facebook.jpg&imgrefurl=https%3A%2F%2Ffreeenglishlessonplans.com%2F2016%2F02%2F07%2Fmind-boggling-expressions-with-mind%2F&tbnid=aeu_MRBgnM9bdM&vet=12ahUKEwi_m-a07PDyAhV2wikDHbTFA1UQMygEegUIARDXAQ..i&docid=cr1WTSdIFYcXPM&w=1536&h=1152&q=mind&ved=2ahUKEwi_m-a07PDyAhV2wikDHbTFA1UQMygEegUIARDXAQ'
+    async asyncData({params, app, error}) {
+        let data = await app.$axios.$get(process.env.baseUrl +`/posts/${params.postid}.json`)
+        .catch(err => error(err))
+
+        return { 
+            loadedPost: {...data, id: params.postid } 
         }
-    })
+    },
+    methods: {
+        async onSubmitted(editedPost) {
+            await this.$store.dispatch('editPost', editedPost);
+            this.$router.push('/admin');
+        }
+    }
 }
 </script>
 

@@ -3,17 +3,18 @@
     <section class="intro">
       <h1>Get the latest tect news!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts"/>
   </div>
 </template>
 
 
 <script>
-import PostList from '@/components/Posts/PostList'
 
 export default {
-  components: {
-    PostList
+  computed: {
+    loadedPosts(){
+      return this.$store.state.loadedPosts;
+    }
   }
 }
 </script>

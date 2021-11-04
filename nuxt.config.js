@@ -1,3 +1,5 @@
+const express = require('express');
+const axios = require('axios')
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -20,10 +22,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~assets/styles/main.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/core-components.js',
+    '~/plugins/date-filter.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -35,9 +40,47 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',    
   ],
+  axios: {
+    baseURL: 'https://nuxt-blog-955ef-default-rtdb.firebaseio.com'
+  },
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  
+  loading: {
+    color: 'green',
+    height: '2px',
+    duration: 5000
+  },
+  env: {
+    baseUrl:  'https://nuxt-blog-955ef-default-rtdb.firebaseio.com',
+    fbAPIKEY: 'AIzaSyByol5cFffmiufncKqxB2hsrlzTsMMgKTM'
+  },
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
+  router: {
+    middleware: 'log'
+  },
+  serverMiddleware: [
+    express.json(),
+    '~/api'
+  ],
+  generate: {
+    routes: async function (){
+      const response = await axios.get('https://nuxt-blog-955ef-default-rtdb.firebaseio.com/posts.json')
+      .catch(error => console.log(error))
+      const routes = [];
+      for(const key in response.data) {
+        routes.push(`/posts/${key}`)
+      }
+
+      return routes;
+    }
   }
 }
