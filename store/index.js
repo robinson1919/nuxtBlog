@@ -76,7 +76,7 @@ const createStore = () => {
                 Cookie.set('jwt', response.idToken)
                 Cookie.set('expirationDate', +expirationDate)
 
-                const res = await this.$axios.$post('http://localhost:3000/api/track-data', {data: 'hello'})
+                const res = await this.$axios.$post('https://nuxtblog1.herokuapp.com/api/track-data', {data: 'hello'})
                 .catch(error => console.log(error))
 
                 return response;  
