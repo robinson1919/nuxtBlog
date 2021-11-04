@@ -1,0 +1,58 @@
+[
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "C:\\\\Users\\\\robinson\\\\Documents\\\\nuxt\\\\nuxtBlog\\\\pages\\\\about\\\\index.vue",
+    "chunkName": "pages/about/index",
+    "_name": "_6e513378"
+  },
+  {
+    "name": "admin",
+    "path": "/admin",
+    "component": "C:\\\\Users\\\\robinson\\\\Documents\\\\nuxt\\\\nuxtBlog\\\\pages\\\\admin\\\\index.vue",
+    "chunkName": "pages/admin/index",
+    "_name": "_5c847942"
+  },
+  {
+    "name": "posts",
+    "path": "/posts",
+    "component": "C:\\\\Users\\\\robinson\\\\Documents\\\\nuxt\\\\nuxtBlog\\\\pages\\\\posts\\\\index.vue",
+    "chunkName": "pages/posts/index",
+    "_name": "_21ca463e"
+  },
+  {
+    "name": "admin-auth",
+    "path": "/admin/auth",
+    "component": "C:\\\\Users\\\\robinson\\\\Documents\\\\nuxt\\\\nuxtBlog\\\\pages\\\\admin\\\\auth\\\\index.vue",
+    "chunkName": "pages/admin/auth/index",
+    "_name": "_780d651a"
+  },
+  {
+    "name": "admin-new-post",
+    "path": "/admin/new-post",
+    "component": "C:\\\\Users\\\\robinson\\\\Documents\\\\nuxt\\\\nuxtBlog\\\\pages\\\\admin\\\\new-post\\\\index.vue",
+    "chunkName": "pages/admin/new-post/index",
+    "_name": "_4f824616"
+  },
+  {
+    "name": "admin-postid",
+    "path": "/admin/:postid",
+    "component": "C:\\\\Users\\\\robinson\\\\Documents\\\\nuxt\\\\nuxtBlog\\\\pages\\\\admin\\\\_postid\\\\index.vue",
+    "chunkName": "pages/admin/_postid/index",
+    "_name": "_4d687bf8"
+  },
+  {
+    "name": "posts-id",
+    "path": "/posts/:id",
+    "component": "C:\\\\Users\\\\robinson\\\\Documents\\\\nuxt\\\\nuxtBlog\\\\pages\\\\posts\\\\_id\\\\index.vue",
+    "chunkName": "pages/posts/_id/index",
+    "_name": "_4a563d9c"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\robinson\\\\Documents\\\\nuxt\\\\nuxtBlog\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_38ea5f43"
+  }
+]
