@@ -83,5 +83,8 @@ export default {
       return routes;
     }
   },
-  port: process.env.PORT || 3000
+  server: {
+    port: process.env.PORT || 3000
+  }
+  
 }
